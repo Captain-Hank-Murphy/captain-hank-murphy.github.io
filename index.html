@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Meme Stock Tracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js" defer ></script>
+
+
+		<script>
+			$(document).ready(function() {
+				$('#stonks').DataTable({
+					"processing" : true,
+					"searching": false,  
+					"lengthChange": false,
+					"order": [[ 1, "desc" ]],
+					"info" : false,
+					"pageLength": 12,
+					"ajax" : {
+						"url" : "https://wsb-pop-index.s3.amazonaws.com/wsbPopIndex.json"					
+					}
+				});
+
+				$.getJSON('https://wsb-pop-index.s3.amazonaws.com/wsbPopIndex.json', function(data) {
+					$("#posts").html(data.posts);
+					$("#comments").html(data.comments);
+					$("#time").text(data.time.substring(0,19) + ' UTC');
+				});
+
+				$('.dataTable').on('click', 'tbody td', function() {
+				//get textContent of the TD
+				console.log('TD cell textContent : ', this.textContent)
+				
+				//If ticker symbol, link to Yahoo Finance
+				if(/^[a-zA-Z]+$/.test(this.textContent))
+				{
+					window.open("https://finance.yahoo.com/quote/" + this.textContent); 
+				}
+				//If mention count, link to reddit
+				if(/^[/\d+/g]+$/.test(this.textContent))
+				{
+					var ticker = $(this).prevAll().text();
+					window.open("https://www.reddit.com/r/wallstreetbets/search/?q=" + ticker + "&include_over_18=on&restrict_sr=on&t=all&sort=new"); 
+				}})
+
+			});
+
+
+		</script>
+
+
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header" class="wrapper">
+					<!-- Logo -->
+						<div id="image" style="display:inline;">
+							<img src="https://images.fineartamerica.com/images/artworkimages/medium/2/wallstreetbets-yuri-gagari-transparent.png" style="height:70%; width:70%;">
+						</div>
+						<div id="logo">
+							<h1>WSB's Hottest Meme Stocks</h1>
+							<p>Stocks on the Spectrum</p>
+						</div>
+						<div id="image" style="display:inline;">
+							<img src="https://images.fineartamerica.com/images/artworkimages/medium/2/wallstreetbets-yuri-gagari-transparent.png" style="height:70%; width:70%; transform: rotateY(180deg);">
+						</div>
+				</section>
+
+			<!-- Intro -->
+				<section id="intro" class="wrapper style1">
+					
+					<div class="container">
+						<p class="style1" style="color:white; font-weight: bold; margin-bottom: 0px;">Parsed from <a href="https://reddit.com/r/wallstreetbets" target="_blank">/r/wallstreetbets</a> - Here are the most memed stocks of the last 24 hours</p>
+						<p>Parsed <span id="posts" style="color: gold"></span> posts and <span id="comments" style="color: gold"></span> comments at <span id="time" style="color: gold"></span>
+						 This data is refreshed every four hours.</p>
+					</div>
+
+						
+					<div class="container">
+						<table id="stonks" style="font-size: 1.7em; width: 65%; color:white">
+							<thead>
+								<tr>
+									<th style="font-size: 2em; font-weight: bold; text-decoration:underline; border-bottom: none;">Stock</th>
+									<th style="font-size: 1.8em; font-weight: bold; text-decoration:underline; border-bottom: none;">Times mentioned</th>
+								</tr>	
+							</thead>
+							<tbody>
+			
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+
+			<!-- Footer -->
+				<section id="footer" class="wrapper">
+					<div class="container">
+						<header class="style1">
+							<h2>DISCLAIMER</h2>
+							<p>
+								You should not use the information on this page for investing. DO NOT trust /r/wallstreetbets as valid research. Use this at your own risk. Using this data for investing purposes concedes that you are intellectually deficit as no one should be using memes for investment advice.
+							</p>
+						</header>
+					</div>
+					<div>CSS from HTML5UP</div>
+					<span style="float:right">
+						Buy me a chicken tendie (BTC)  
+						<img src="btc_qr_code.png" style="height: 8vh !important"> 
+					</span>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
