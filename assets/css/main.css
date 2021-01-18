@@ -65,7 +65,7 @@ td:hover  {
 	text-decoration: underline; 
 }
 
-th:hover  { 
+th:hover, #sublink:hover  { 
 	color: gold;
 	text-decoration: underline; 
 }
