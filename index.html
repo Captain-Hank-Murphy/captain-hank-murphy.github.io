@@ -29,7 +29,7 @@
 				$.getJSON('https://wsb-pop-index.s3.amazonaws.com/wsbPopIndex.json', function(data) {
 					$("#posts").html(data.posts);
 					$("#comments").html(data.comments);
-					$("#time").text(data.time.substring(0,19) + ' UTC');
+					$("#time").text(data.time.substring(0,19) + ' EST');
 				});
 
 				$('.dataTable').on('click', 'tbody td', function() {
@@ -79,9 +79,13 @@
 				<section id="intro" class="wrapper style1">
 					
 					<div class="container">
-						<p class="style1" style="color:white; font-weight: bold; margin-bottom: 0;">Parsed from <a href="https://old.reddit.com/r/wallstreetbets" target="_blank">/r/wallstreetbets</a> - Here are the most memed stocks of the last 24 hours</p>
-						<p>Parsed <span id="posts" style="color: gold"></span> posts and <span id="comments" style="color: gold"></span> comments at <span id="time" style="color: gold"></span>
-						 This data is refreshed <span style="color: gold">every hour</span>.</p>
+						<p class="style1" style="color:white; font-weight: bold; margin-bottom: 0;">
+							Parsed from <a href="https://old.reddit.com/r/wallstreetbets" target="_blank" id="sublink">/r/wallstreetbets</a> - Here are the most memed stocks of the last 24 hours
+						</p>
+						<p>
+							Parsed <span id="posts" style="color: gold"></span> posts and <span id="comments" style="color: gold"></span> comments at <span id="time" style="color: gold"></span>
+							This data is refreshed <span style="color: gold">every hour</span>.
+						</p>
 					</div>
 
 						
