@@ -125,7 +125,16 @@ th {
 	padding-top: 0em;
 }
 
+#css_source
+{
+	font-size: .75em;
+	padding-left: .5em;
+}
 
+#qr_code, #chicken_tendie, #btc_address
+{
+	padding-right: .5em;
+}
 
 ol, ul {
 	list-style: none;
@@ -2561,7 +2570,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer {
-				padding-bottom: 4em;
+				padding-bottom: 6em;
 			}
 
 				#footer header.style1 {
@@ -3105,6 +3114,15 @@ input, select, textarea {
 
 					#logo {
 						padding-top: 1em !important;
+					}
+
+					#footer {
+						padding-top: 1em;
+						padding-bottom: 4em !important;
+					}
+
+					#btc_address {
+						display:none;
 					}
 				
 				}
