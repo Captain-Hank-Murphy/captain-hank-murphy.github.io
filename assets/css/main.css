@@ -45,7 +45,7 @@ table tr td:empty {
 	margin: auto;
   }
 
-  tbody:before {
+tbody:before {
     content:"@";
     display:block;
     line-height:10px;
@@ -55,7 +55,6 @@ table tr td:empty {
 table tr td {
 	padding-top: 15px;
 	padding-bottom: 5px;
- 	
 	background: #e97770 url("images/overlay.png");
 
 }
@@ -63,11 +62,13 @@ table tr td {
 td:hover  { 
 	color: gold;
 	text-decoration: underline; 
+	transition: color .4s ease-in-out;
 }
 
 th:hover, #sublink:hover  { 
 	color: gold;
 	text-decoration: underline; 
+	transition: color .25s ease-in-out;
 }
 
 th {
@@ -2170,7 +2171,7 @@ input, select, textarea {
 		}
 
 		.homepage #header {
-			height: 12em;
+			height: 13em;
 		}
 
 /* Logo */
@@ -2973,7 +2974,7 @@ input, select, textarea {
 			}
 
 				.homepage #header {
-					height: 20em;
+				/**	height: 20em; */
 				}
 
 		/* Logo */
@@ -3078,4 +3079,35 @@ input, select, textarea {
 							margin-top: 0;
 						}
 
+				@media screen and (max-width: 400px) 
+				{
+				
+					#stonks_wrapper 
+					{ 
+						font-size: .75em !important; 
+					}
+
+					.table.dataTable tbody th, table.dataTable tbody td {
+						padding: 4px 4px !important;
+					}
+
+					.th {
+						vertical-align:bottom !important;
+					}
+
+					.wrapper {
+						position: relative;
+						padding: 1.5em 0 4em 0;
+					}
+					p {
+						margin-bottom: 0.75em !important;
+					}
+
+					#logo {
+						padding-top: 1em !important;
+					}
+				
+				}
+
 	}
+
