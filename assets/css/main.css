@@ -65,7 +65,7 @@ td:hover  {
 	transition: color .4s ease-in-out;
 }
 
-th:hover, #sublink:hover  { 
+th:hover, #sublink:hover, li:hover  { 
 	color: gold;
 	text-decoration: underline; 
 	transition: color .25s ease-in-out;
@@ -276,6 +276,28 @@ input, select, textarea {
 	p, ul, ol, dl, table, blockquote, form {
 		margin-bottom: 2em;
 	}
+
+	#links {
+		padding-top: 2em !important;
+		display: flex;
+		justify-content: space-between;
+		list-style-type: none;
+		padding: 10px;
+		margin: 0;
+		font-size: 2em;
+		text-decoration: none;
+	}
+
+	#links li a {
+		text-decoration: none;
+	}
+
+	#links li:hover a {
+	    color: gold;
+	    text-decoration: underline;
+	    text-decoration-color: gold;
+	}
+
 
 /* Container */
 
@@ -2848,6 +2870,12 @@ input, select, textarea {
 				-ms-transform: translateX(0);
 				transform: translateX(0);
 			}
+				
+			#links {
+				font-size: 1.5em;
+			}
+
+
 
 	}
 
