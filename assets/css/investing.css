@@ -1,0 +1,74 @@
+#logo h1 {
+	font-weight: 900;
+	line-height: 75px;
+	color: #fff;
+	font-size: 4.5em;
+	letter-spacing: 0.1em;
+}
+
+table {
+	background: #8f2928 url("images/overlay.png");
+}
+
+tbody {
+	background: #8f2928 url("images/overlay.png");
+}
+
+table tr td:empty {
+	margin: auto;
+  }
+
+tbody:before {
+    content:"@";
+    display:block;
+    line-height:10px;
+    text-indent:-99999px;
+}
+  	
+table tr td {
+	padding-top: 15px;
+	padding-bottom: 5px;
+	background: #8f2928 url("images/overlay.png");
+
+}
+
+input[type="button"].style1,
+input[type="submit"].style1,
+input[type="reset"].style1,
+button.style1,
+.button.style1 {
+	background: #8f2928 url("images/overlay.png");
+	color: #fff;
+}
+
+.feature-list h3 {
+color: #8f2928 !important;
+margin: -0.35em 0 0.75em 0;
+font-size: 1.15em;
+letter-spacing: 0.05em;
+}
+
+.wrapper.style1 {
+	background: #8f2928 url("images/overlay.png");
+	color: #eee;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.wrapper.style1 .title {
+	background: #8f2928 url("images/overlay.png");
+	color: #fff;
+}
+
+.wrapper.style1 h1, .wrapper.style1 h2, .wrapper.style1 h3, .wrapper.style1 h4, .wrapper.style1 h5, .wrapper.style1 h6, .wrapper.style1 strong, .wrapper.style1 b, .wrapper.style1 a {
+	color: #fff;
+}
+
+@media screen and (max-width: 980px) {
+#logo h1 {
+	font-weight: 900;
+	color: #fff;
+	font-size: 2.5em;
+	letter-spacing: 0.1em;
+	line-height: 45px;
+}
+}
