@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Penny Stock Tracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/penny.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+		<script src="https://memestocks.org/assets/js/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js" defer ></script>
+
+
+		<script>
+			$(document).ready(function() {
+				$('#stonks').DataTable({
+					"processing" : true,
+					"searching": false,  
+					"lengthChange": false,
+					"order": [[ 1, "desc" ]],
+					"info" : false,
+					"pageLength": 12,
+					"ajax" : {
+						"url" : "https://wsb-pop-index.s3.amazonaws.com/pennystocksPopIndex.json"					
+					}
+				});
+
+				$.getJSON('https://wsb-pop-index.s3.amazonaws.com/pennystocksPopIndex.json', function(data) {
+					$("#posts").html(data.posts);
+					$("#comments").html(data.comments);
+					$("#time").text(data.time.substring(0,19) + ' EST');
+				});
+
+				$('.dataTable').on('click', 'tbody td', function() {
+				//get textContent of the TD
+				console.log('TD cell textContent : ', this.textContent)
+				
+				//If ticker symbol, link to Yahoo Finance
+				if(/^[a-zA-Z]+$/.test(this.textContent))
+				{
+					window.open("https://finance.yahoo.com/quote/" + this.textContent); 
+				}
+				//If mention count, link to reddit
+				if(/^[/\d+/g]+$/.test(this.textContent))
+				{
+					var ticker = $(this).prevAll().text();
+					window.open("https://old.reddit.com/r/pennystocks/search/?q=" + ticker + "&include_over_18=on&restrict_sr=on&t=all&sort=new"); 
+				}})
+
+			});
+
+
+		</script>
+
+
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header" class="wrapper">
+				<!-- Logo -->
+					<div id="image" style="display:inline;">
+						<img src="https://memestocks.org/images/penny.png" style="width: 100%;
+						height: auto; max-height: 400px;">
+					</div>
+					<div id="logo">
+						<h1>Reddit's Hottest Penny Stocks</h1>
+					</div>
+					<div id="image" style="display:inline;">
+						<img src="https://memestocks.org/images/penny.png" style="width: 100%;
+						height: auto; max-height: 400px;">
+					</div>
+			</section>
+
+			<!-- Intro -->
+			<section id="intro" class="wrapper style1">
+				
+				<div class="container">
+					<p class="style1" style="color:white; font-weight: bold; margin-bottom: 0;">
+						Fresh from <a href="https://old.reddit.com/r/pennystocks" target="_blank" id="sublink">/r/PennyStocks</a> - Here are the most mentioned stocks of the last 24 hours
+					</p>
+					<p>
+						Parsed <span id="posts" style="color: gold"></span> posts and <span id="comments" style="color: gold"></span> comments at <span id="time" style="color: gold"></span>
+						This data is refreshed three to four times a day.
+					</p>
+				</div>
+
+					
+				<div class="container">
+					<table id="stonks" style="font-size: 1.7em; width: 65%; color:white">
+						<thead>
+							<tr>
+								<th style="font-size: 2em; font-weight: bold; text-decoration:underline; border-bottom: none; vertical-align:bottom !important;">Stock</th>
+								<th style="font-size: 1.8em; font-weight: bold; text-decoration:underline; border-bottom: none;">Times mentioned</th>
+							</tr>	
+						</thead>
+						<tbody>
+		
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!--
+			<section id="footer">
+				<div class="container">
+					<a href="../investing">Top from /r/Investing</a>
+					<a href="../penny">Top from /r/PennyStocks</a>
+					<a href="../steelgang">Top from /r/investing</a>
+				</div>	
+			</section>
+		    -->
+
+
+			<!-- Footer -->
+			<section id="footer" class="wrapper">
+				<div class="container">
+					<header class="style1">
+						<h2>DISCLAIMER</h2>
+						<p>
+							You should not use the information on this page for investing. DO NOT trust reddit as valid research. Use this at your own risk.
+						</p>
+					</header>
+				</div>
+				<div id="css_source" style="float:left;">CSS from HTML5UP</div>
+				<!--
+				<div id="qr_code" style="float:right; background: #282b34"><img src="btc_qr_code.png" style="height: 8vh !important"> </div>
+				
+				<div id="chicken_tendie" style="float:right; background: #282b34">
+					Buy me a chicken tendie (BTC)   	
+				</div>
+				</br>
+				<div id="btc_address" style="float:right; background: #282b34; font-size: .5em;">
+					zpub6mpCFQSYH96m5pwQJtuHmeB6Szw1wPuYK2AT8Cee92yazU45FdoCK6KvQpKGoJGo1UDn91rTBNjMNpiJH1vAuDBzFV9BcKc4zDqu7tUjuX1 
+				</div>
+				-->
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
