@@ -26,7 +26,7 @@
 					}
 				});
 
-				$.getJSON('https://wsb-pop-index.s3.amazonaws.com/wsbPopIndex.json', function(data) {
+				$.getJSON('https://wsb-pop-index.s3.amazonaws.com/wallstreetbetsPopIndex.json', function(data) {
 					$("#posts").html(data.posts);
 					$("#comments").html(data.comments);
 					$("#time").text(data.time.substring(0,19) + ' EST');
