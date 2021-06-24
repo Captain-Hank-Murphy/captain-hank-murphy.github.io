@@ -60,59 +60,58 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<section id="header" class="wrapper">
-					<!-- Logo -->
-						<div style="font-size:7rem;width:100%;text-align:center;">
-							🦾
-						</div>
-						<div id="logo">
-							<h1>Steel Stock Tracker</h1>
-						</div>
-						<div style="font-size:7rem;width:100%;text-align:center;">
-							🦾
-						</div>
-				</section>
+			<section id="header" class="wrapper">
+				<!-- Logo -->
+					<div class="steel-icon">
+						🦾
+					</div>
+					<div id="logo">
+						<h1>Steel Stock Tracker</h1>
+						<p>Steelgang's Hottest Steel</p>
+					</div>
+					<div class="steel-icon">
+						🦾
+					</div>
+			</section>
 
 			<!-- Intro -->
-				<section id="intro" class="wrapper style1">
+			<section id="intro" class="wrapper style1">
+				
+				<div class="container">
+					<p class="style1" style="color:white; font-weight: bold; margin-bottom: 0;">
+						Fresh from <a href="https://old.reddit.com/r/vitards" target="_blank" id="sublink">/r/Vitards</a> - Here are the most mentioned stocks of the last 24 hours
+					</p>
+					<p>
+						Parsed <span id="posts" style="color: gold"></span> posts and <span id="comments" style="color: gold"></span> comments at <span id="time" style="color: gold"></span>
+						This data is refreshed three to four times a day.
+					</p>
+				</div>
+
 					
-					<div class="container">
-						<p class="style1" style="color:white; font-weight: bold; margin-bottom: 0;">
-							Fresh from <a href="https://old.reddit.com/r/vitards" target="_blank" id="sublink">/r/Vitards</a> - Here are the most mentioned stocks of the last 24 hours
-						</p>
-						<p>
-							Parsed <span id="posts" style="color: gold"></span> posts and <span id="comments" style="color: gold"></span> comments at <span id="time" style="color: gold"></span>
-							This data is refreshed <span style="color: gold">every three hours</span>.
-						</p>
-					</div>
+				<div class="container">
+					<table id="stonks" style="font-size: 1.7em; width: 65%; color:white">
+						<thead>
+							<tr>
+								<th style="font-size: 2em; font-weight: bold; text-decoration:underline; border-bottom: none; vertical-align:bottom !important;">Stock</th>
+								<th style="font-size: 1.8em; font-weight: bold; text-decoration:underline; border-bottom: none;">Times mentioned</th>
+							</tr>	
+						</thead>
+						<tbody>
+		
+						</tbody>
+					</table>
+				</div>
+			</section>
 
-						
-					<div class="container">
-						<table id="stonks" style="font-size: 1.7em; width: 65%; color:white">
-							<thead>
-								<tr>
-									<th style="font-size: 2em; font-weight: bold; text-decoration:underline; border-bottom: none; vertical-align:bottom !important;">Stock</th>
-									<th style="font-size: 1.8em; font-weight: bold; text-decoration:underline; border-bottom: none;">Times mentioned</th>
-								</tr>	
-							</thead>
-							<tbody>
-			
-							</tbody>
-						</table>
-					</div>
-				</section>
-
-			<!-- Links -->		
 			<section id="footer">
 				<div class="container">
-					<ul id="links">
-					  <li><a href="./pennystocks">Top Penny Stocks</a></li>
-					  <li><a href="./investing">Top r/Investing</a></li>
-					  <li><a href="./">Top WSB Stocks</a></li>
-					</ul>					
+					<a href="../investing">Top from /r/Investing</a>
+					<a href="../penny">Top from /r/PennyStocks</a>
+					<a href="../steelgang">Top from /r/Vitards</a>
 				</div>	
 			</section>
-			
+
+
 			<!-- Footer -->
 			<section id="footer" class="wrapper">
 				<div class="container">
@@ -126,7 +125,7 @@
 				<div id="css_source" style="float:left;">CSS from HTML5UP</div>
 				<!--
 				<div id="qr_code" style="float:right; background: #282b34"><img src="btc_qr_code.png" style="height: 8vh !important"> </div>
-
+				
 				<div id="chicken_tendie" style="float:right; background: #282b34">
 					Buy me a chicken tendie (BTC)   	
 				</div>
@@ -135,7 +134,7 @@
 					zpub6mpCFQSYH96m5pwQJtuHmeB6Szw1wPuYK2AT8Cee92yazU45FdoCK6KvQpKGoJGo1UDn91rTBNjMNpiJH1vAuDBzFV9BcKc4zDqu7tUjuX1 
 				</div>
 				-->
-			</section>
+				</section>
 
 		</div>
 
