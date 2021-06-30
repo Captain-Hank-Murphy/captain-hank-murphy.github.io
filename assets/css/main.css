@@ -2868,7 +2868,8 @@ input, select, textarea {
 			}
 				
 			#links {
-				font-size: 1.5em;
+				font-size: 20px;
+				text-align: center;
 			}
 
 
